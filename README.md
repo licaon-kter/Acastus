@@ -3,11 +3,11 @@
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
-      height="80">](https://f-droid.org/app/me.dbarnett.acastus)
+      height="80">](https://f-droid.org/app/name.gdr.acastus_photon)
       
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
       alt="Get it on Google Play"
-      height="80">](https://play.google.com/store/apps/details?id=me.dbarnett.acastus)
+      height="80">](https://play.google.com/store/apps/details?id=name.gdr.acastus_photon)
 
 Acastus is a completely private, free and open source Address / POI lookup application for android.
 

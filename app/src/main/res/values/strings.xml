@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Acastus</string>
+    <string name="app_name">Acastus Photon</string>
 
     <string name="action_settings">Settings</string>
 
@@ -31,7 +31,7 @@
 
     <string name="server_url_setting">Server Address</string>
 
-    <string name="server_url_default" translatable="false">https://search.mapzen.com</string>
+	<string name="server_url_default" translatable="false">https://photon.komoot.de/api</string>
 
     <string name="api_key_setting" translatable="false">API Key</string>
 

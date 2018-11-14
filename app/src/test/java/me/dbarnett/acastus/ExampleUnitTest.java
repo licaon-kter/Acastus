@@ -1,4 +1,4 @@
-package me.dbarnett.acastus;
+package name.gdr.acastus_photon;
 
 import org.junit.Test;
 

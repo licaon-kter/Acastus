@@ -1,4 +1,4 @@
-package me.dbarnett.acastus;
+package name.gdr.acastus_photon;
 
 /**
  * Created by daniel on 7/24/16.
