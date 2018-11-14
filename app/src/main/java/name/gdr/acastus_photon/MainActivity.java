@@ -718,22 +718,66 @@ public class MainActivity extends AppCompatActivity{
             JSONArray coordinates = geometry.getJSONArray("coordinates");
             lat = coordinates.getDouble(1);
             lon = coordinates.getDouble(0);
-            String name = properties.getString("label");
+            String name = "(unnamed)";
+            try {
+                name = properties.getString("label");
+            } catch (JSONException e) {
+                name = properties.getString("name");
+            }
             ResultNode tempNode = new ResultNode();
             tempNode.lat = lat;
             tempNode.lon = lon;
             tempNode.name = name;
+            try {
+                tempNode.city = properties.getString("city");
+            } catch (JSONException e) {
+                tempNode.city = null;
+            }
+            try {
+                tempNode.street = properties.getString("street");
+            } catch (JSONException e) {
+                tempNode.street = null;
+            }
+            try {
+                tempNode.housenumber = properties.getString("housenumber");
+            } catch (JSONException e) {
+                tempNode.housenumber = null;
+            }
+            try {
+                tempNode.type = properties.getString("osm_value");
+            } catch (JSONException e) {
+                tempNode.type = null;
+            }
+
+            String thisLabel = "";
+
             if (useLocation) {
                 Boolean kilometers = prefs.getBoolean("unit_length", false);
                 Double distance = geoLocation.distance(curLat, lat, curLon, lon, kilometers);
                 if (kilometers){
-                    labels.add(name + " : " + distance + " km");
+                    thisLabel = name + " : " + distance + " km";
                 }else{
-                    labels.add(name + " : " + distance + " mi");
+                    thisLabel = name + " : " + distance + " mi";
                 }
             } else {
-                labels.add(name);
+                thisLabel = name;
             }
+            if (tempNode.type != null) {
+                thisLabel += " (" + tempNode.type + ")";
+            }
+            if (tempNode.street != null || tempNode.city != null) {
+                thisLabel += "\n";
+                if(tempNode.city != null) {
+                    thisLabel += tempNode.city + " ";
+                }
+                if(tempNode.street != null) {
+                    thisLabel += tempNode.street + " "; 
+                }
+                if(tempNode.housenumber != null) {
+                    thisLabel += tempNode.housenumber;
+                }
+            }
+            labels.add(thisLabel);
             lookupList.add(tempNode);
         }
     }
@@ -779,9 +823,9 @@ public class MainActivity extends AppCompatActivity{
         }
         String searchQuery;
         if (useLocation) {
-            searchQuery = serverAddress + "/v1/autocomplete?" + "focus.point.lat=" + curLat + "&focus.point.lon=" + curLon + "&text=" + input + "&api_key=" + prefs.getString("api_key", "");
+            searchQuery = serverAddress + "?" + "lat=" + curLat + "&lon=" + curLon + "&q=" + input;
         } else {
-            searchQuery = serverAddress + "/v1/autocomplete?text=" + input + "&api_key=" + prefs.getString("api_key", "");
+            searchQuery = serverAddress + "?q=" + input;
         }
         System.out.println(searchQuery);
         searchQuery = searchQuery.replace(' ', '+');

@@ -6,6 +6,10 @@ package name.gdr.acastus_photon;
 public class ResultNode {
 
     public String name;
+    public String city;
+    public String street;
+    public String housenumber;
+    public String type;
     public double lat;
     public double lon;
 
