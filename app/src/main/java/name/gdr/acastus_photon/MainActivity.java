@@ -22,6 +22,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +39,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -117,6 +120,8 @@ public class MainActivity extends AppCompatActivity{
      * The Use location.
      */
     public static Boolean useLocation;
+
+    final String LOG_TAG = "acastus_photon.MainActivity";
 
     protected static Context context;
 
@@ -248,7 +253,7 @@ public class MainActivity extends AppCompatActivity{
     void setupLocationUse(){
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         geoLocation = new GeoLocation(locationManager, getApplicationContext());
-        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
         if (useLocation && isLocationEnabled()) {
             geoCoordinates = geoLocation.getLocation();
             if (geoCoordinates != null) {
@@ -711,6 +716,8 @@ public class MainActivity extends AppCompatActivity{
         lookupList.clear();
         labels.clear();
         double lat, lon;
+        Boolean kilometers = prefs.getBoolean("unit_length", false);
+
         for (int i = 0; i < array.length(); i++) {
             JSONObject initialArray = array.getJSONObject(i);
             JSONObject geometry = initialArray.getJSONObject("geometry");
@@ -749,36 +756,25 @@ public class MainActivity extends AppCompatActivity{
                 tempNode.type = null;
             }
 
-            String thisLabel = "";
-
             if (useLocation) {
-                Boolean kilometers = prefs.getBoolean("unit_length", false);
-                Double distance = geoLocation.distance(curLat, lat, curLon, lon, kilometers);
-                if (kilometers){
-                    thisLabel = name + " : " + distance + " km";
-                }else{
-                    thisLabel = name + " : " + distance + " mi";
-                }
-            } else {
-                thisLabel = name;
+                tempNode.setDistance(curLat, curLon, geoLocation, kilometers);
             }
-            if (tempNode.type != null) {
-                thisLabel += " (" + tempNode.type + ")";
-            }
-            if (tempNode.street != null || tempNode.city != null) {
-                thisLabel += "\n";
-                if(tempNode.city != null) {
-                    thisLabel += tempNode.city + " ";
-                }
-                if(tempNode.street != null) {
-                    thisLabel += tempNode.street + " "; 
-                }
-                if(tempNode.housenumber != null) {
-                    thisLabel += tempNode.housenumber;
-                }
-            }
-            labels.add(thisLabel);
+
             lookupList.add(tempNode);
+        }
+
+        if (useLocation) {
+            Collections.sort(lookupList, new Comparator<ResultNode>() {
+                @Override
+                public int compare(ResultNode a, ResultNode b) {
+                    return (int)(1000*a.distance - 1000*b.distance);
+                }
+            });
+        }
+
+        for (ResultNode tempNode: lookupList) {
+            String thisLabel = tempNode.getLabel(useLocation, kilometers, curLat, curLon, geoLocation);
+            labels.add(thisLabel);
         }
     }
 
@@ -818,6 +814,7 @@ public class MainActivity extends AppCompatActivity{
                 curLat = coordinates[0];
                 curLon = coordinates[1];
             }else {
+                Log.i(LOG_TAG, "Geolocation not ready, not using in search");
                 useLocation = false;
             }
         }
