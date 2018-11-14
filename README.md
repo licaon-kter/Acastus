@@ -5,25 +5,23 @@
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/name.gdr.acastus_photon)
       
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
-      alt="Get it on Google Play"
-      height="80">](https://play.google.com/store/apps/details?id=name.gdr.acastus_photon)
-
-Acastus is a completely private, free and open source Address / POI lookup application for android.
+Acastus Photon is a completely private, free and open source Address / POI lookup application for android.
 
 Use it to find nearby places, all without the privacy invasions and tracking features of other 
 apps. 
 
 Share your location to other people, knowing full well that the information is kept private.
 
-Acastus relies on Pelias as the backend, a replacement for Google Maps and other geocoding services
-that you can run on your own server. It uses the pelias-api to fetch results to your phone, allowing
+Acastus Photon relies on [Photon](http://photon.komoot.de/) as the backend, a replacement for Google Maps and other geocoding services
+that you can run on your own server. It uses the photon-api to fetch results to your phone, allowing
 you to search for places, then open and navigate to the result in your preferred 
 navigation app such as OsmAnd or Maps.me.
 
-Details on setting up your own Pelias instance are here: https://github.com/pelias/pelias
+Details on setting up your own Photon instance are here: https://github.com/komoot/photon
 
-Donations are welcome and greatly appreciated:
+[Acastus](https://github.com/DanielBarnett714/Acastus) has been originally created by DanielBarnett714 and used [Pelias](https://pelias.io) / Mapzen backend. This fork is maintained by [GDR!](https://gdr.name/) and uses Photon backend hosted by [Komoot](https://komoot.de/). You can use your own backend in settings. The fork exists because Mapzen went bankrupt and there don't seem to be any other public Pelias instances. Also, Photon seems to do a better job at free text searches.
+
+Daniel welcomes donations:
 
 [Bitcoin](https://blockchain.info/address/1NjjuTxXm3ezpnVUGk4VmdEZUcym3SKZ8z)
 
