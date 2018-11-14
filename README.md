@@ -21,6 +21,8 @@ Details on setting up your own Photon instance are here: https://github.com/komo
 
 [Acastus](https://github.com/DanielBarnett714/Acastus) has been originally created by DanielBarnett714 and used [Pelias](https://pelias.io) / Mapzen backend. This fork is maintained by [GDR!](https://gdr.name/) and uses Photon backend hosted by [Komoot](https://komoot.de/). You can use your own backend in settings. The fork exists because Mapzen went bankrupt and there don't seem to be any other public Pelias instances. Also, Photon seems to do a better job at free text searches.
 
+Acastus is the son of Pelias in Greek mythology and using this name for my fork doesn't make sense, but who cares.
+
 Daniel welcomes donations:
 
 [Bitcoin](https://blockchain.info/address/1NjjuTxXm3ezpnVUGk4VmdEZUcym3SKZ8z)
