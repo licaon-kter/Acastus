@@ -2,6 +2,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="name.gdr.acastus_photon.MainActivity">
+
+    <!-- if in picker mode cmd_cancel become visible -->
+    <item android:id="@+id/cmd_cancel" android:title="@android:string/cancel"
+        android:icon="@drawable/ic_action_cancel"
+        android:orderInCategory="5" app:showAsAction="always" android:visible="false" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

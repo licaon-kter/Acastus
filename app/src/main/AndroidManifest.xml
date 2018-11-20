@@ -12,8 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
+        <activity android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -39,12 +38,32 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
 
+            <!-- pick for "geo:" with all mimes (*/*) -->
+            <intent-filter android:label="@string/pick_from_adress">
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:mimeType="*/*" />
+                <data android:scheme="geo" />
+            </intent-filter>
+
+            <!-- pick for "geo:" without mimes -->
+            <intent-filter android:label="@string/pick_from_adress">
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="geo" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="name.gdr.acastus_photon.MainActivity" />
         </activity>
-        <activity
-            android:name=".SettingsActivity"
+        <activity android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity">
             <meta-data

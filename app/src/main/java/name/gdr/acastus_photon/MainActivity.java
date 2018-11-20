@@ -1,6 +1,7 @@
 package name.gdr.acastus_photon;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -121,13 +122,18 @@ public class MainActivity extends AppCompatActivity{
      */
     public static Boolean useLocation;
 
-    final String LOG_TAG = "acastus_photon.MainActivity";
+    // must be <= 21 chars
+    final String LOG_TAG = "acastus_photon.Main";
 
     protected static Context context;
 
     LocationManager locationManager;
 
     ImageButton mViewMapButton;
+
+    /** if true the app is called as geo-picker so that select location returns
+     * to caller insted of show in map */
+    private boolean isPickGeo = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,6 +177,9 @@ public class MainActivity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        if (this.isPickGeo) {
+            menu.findItem(R.id.cmd_cancel).setVisible(true);
+        }
         return true;
     }
 
@@ -199,6 +208,10 @@ public class MainActivity extends AppCompatActivity{
             Intent donateIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://danielbarnett714.github.io/Acastus/"));
             startActivity(donateIntent);
 
+            return true;
+        }
+        if (id == R.id.cmd_cancel) {
+            onPickGeoCancel();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -312,7 +325,7 @@ public class MainActivity extends AppCompatActivity{
                 setRecents(tempNode.name);
                 searchText.setText("");
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(gpsString(tempNode.lat, tempNode.lon)));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getAdressUrl(tempNode.lat, tempNode.lon, null)));
                 try {
                     startActivity(browserIntent);
                 } catch (ActivityNotFoundException e) {
@@ -340,50 +353,61 @@ public class MainActivity extends AppCompatActivity{
     }
 
     /**
-     * Share location.
+     * Share location from gps.
      */
     protected void shareLocation() {
-        Double[] coordinates = null;
+        Double[] coordinates1 = null;
         geoLocation.updateLocation();
         try {
-            coordinates = geoLocation.getLocation();
+            coordinates1 = geoLocation.getLocation();
         } catch (NullPointerException e) {
         }
+        Double[] coordinates = coordinates1;
         if (coordinates != null) {
             double lat = coordinates[0];
             double lon = coordinates[1];
 
-            String uri = gpsString(lat, lon);
-            String shareBody = getResources().getString(R.string.my_current_location) + ":\n" + uri;
-            Intent sharingLocation = new Intent(android.content.Intent.ACTION_SEND);
-            sharingLocation.setType("text/plain");
-            sharingLocation.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getString(R.string.my_current_location));
-            sharingLocation.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-            startActivity(Intent.createChooser(sharingLocation, getResources().getString(R.string.share_my_location)));
+
+            String uri = getAdressUrl(lat, lon, null);
+
+            if (isPickGeo) {
+                Intent openInMaps = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                setResult(Activity.RESULT_OK, openInMaps);
+                finish();
+            } else {
+                String shareBody = getResources().getString(R.string.my_current_location) + ":\n" + uri;
+                Intent sharingLocation = new Intent(android.content.Intent.ACTION_SEND);
+                sharingLocation.setType("text/plain");
+                sharingLocation.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getString(R.string.my_current_location));
+                sharingLocation.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingLocation, getResources().getString(R.string.share_my_location)));
+            }
         }
     }
 
-    protected String gpsString(double lat, double lon){
-        String location;
-        if (prefs.getBoolean("use_google", false) == true) {
-            location = "http://maps.google.com/maps?q=" + lat + "+" + lon;
-            return location;
-        }else {
-            location = "geo:" + lat + "," + lon + "?q=" + lat + "," + lon;
-            return location;
-        }
+    /**
+     * pick geo.
+     */
+    protected void onPickGeoCancel() {
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 
-    protected String addressString(double lat, double lon, String label){
+    protected String getAdressUrl(double lat, double lon, String label) {
+        boolean useGoogle = prefs.getBoolean("use_google", false) == true;
         String location;
-        label = label.replace(" " , "+");
-        label = label.replace("," , "+");
-        label = label.replace("++" , "+");
-        if (prefs.getBoolean("use_google", false) == true) {
+        if (useGoogle && !isPickGeo) {
             location = "http://maps.google.com/maps?q=+" + lat + "+" + lon;
             return location;
         }else {
+            // isPickGeo always use geo format.
             location = "geo:" + lat + "," + lon + "?q="+ lat + "+" + lon + "("+label+")";
+            if (label != null) {
+                label = label.replace(" " , "+");
+                label = label.replace("," , "+");
+                label = label.replace("++" , "+");
+                location += "("+label+")";
+            }
             return location;
         }
     }
@@ -393,16 +417,30 @@ public class MainActivity extends AppCompatActivity{
      */
     private void handleIntent() {
         intent = getIntent();
-        action = intent.getAction();
-        type = intent.getType();
-        if (Intent.ACTION_SEND.equals(action) && type != null) {
-
-            if ("text/plain".equals(type)) {
-                handleSendText(intent); // Handle text being sent
+        action = (intent == null) ? null : intent.getAction();
+        if (action != null) {
+            type = intent.getType();
+            String schema = intent.getScheme();
+            if (Intent.ACTION_SEND.equals(action) && type != null) {
+                if ("text/plain".equals(type)) {
+                    handleSendText(intent); // Handle text being sent
+                }
+            } else if (Intent.ACTION_VIEW.equals(action)) {
+                handleActionView(intent);
+            } else if ((Intent.ACTION_PICK.compareTo(action) == 0) && (schema != null) && ("geo".compareTo(schema) == 0)) {
+                handlePickGeoInit();
             }
-        } else if (Intent.ACTION_VIEW.equals(action)) {
-            handleActionView(intent);
         }
+    }
+
+    /**
+     * Pick Geo Initialisation
+     */
+    private void handlePickGeoInit() {
+        isPickGeo = true;
+        String title = intent.getStringExtra(Intent.EXTRA_TITLE);
+        if (title == null) getString(R.string.pick_from_adress);
+        setTitle(title);
     }
 
     /**
@@ -512,8 +550,13 @@ public class MainActivity extends AppCompatActivity{
     void openInNavApp(String geoCoords){
         try {
             Intent openInMaps = new Intent(Intent.ACTION_VIEW, Uri.parse(geoCoords));
-            startActivity(openInMaps);
-            searchText.setText("");
+            if (isPickGeo) {
+                setResult(Activity.RESULT_OK, openInMaps);
+                finish();
+            } else {
+                startActivity(openInMaps);
+                searchText.setText("");
+            }
         } catch (ActivityNotFoundException e) {
             Toast.makeText(MainActivity.this, getResources().getString(R.string.need_nav_app),
                     Toast.LENGTH_LONG).show();
@@ -574,7 +617,7 @@ public class MainActivity extends AppCompatActivity{
                 setRecents(tempNode.name);
                 EditText searchQuery = (EditText) findViewById(R.id.searchText);
                 searchQuery.setText(tempNode.name);
-                String geoCoords = addressString(tempNode.lat, tempNode.lon, tempNode.name);
+                String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.name);
                 geoCoords = geoCoords.replace(' ', '+');
                 openInNavApp(geoCoords);
             }
@@ -598,13 +641,13 @@ public class MainActivity extends AppCompatActivity{
                         ResultNode tempNode = lookupList.get(position);
                         setRecents(tempNode.name);
                         if (which == 0){
-                            String geoCoords = addressString(tempNode.lat, tempNode.lon, tempNode.name);
+                            String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.name);
                             geoCoords = geoCoords.replace(' ', '+');
                             openInNavApp(geoCoords);
                         }
 
                         if (which == 1){
-                            String shareBody = tempNode.name + "\n" + addressString(tempNode.lat, tempNode.lon, tempNode.name);
+                            String shareBody = tempNode.name + "\n" + getAdressUrl(tempNode.lat, tempNode.lon, tempNode.name);
                             sharePlace(shareBody);
                         }
 
@@ -614,7 +657,7 @@ public class MainActivity extends AppCompatActivity{
                         }
 
                         if (which == 3){
-                            String copyBody = gpsString(tempNode.lat, tempNode.lon);
+                            String copyBody = getAdressUrl(tempNode.lat, tempNode.lon, null);
                             copyToClipboard(copyBody);
                         }
                     }
@@ -851,6 +894,5 @@ public class MainActivity extends AppCompatActivity{
             }
             return null;
         }
-
     }
 }
