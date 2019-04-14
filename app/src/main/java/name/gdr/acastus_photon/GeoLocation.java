@@ -25,15 +25,18 @@ public class GeoLocation implements LocationListener{
 
     Context context;
 
+    LocationAvailableListener locationAvailableListener = null;
+
 
     /**
      * Instantiates a new Geo location.
      *
      * @param locationManager the location manager
      */
-    GeoLocation(LocationManager locationManager, Context context) {
+    GeoLocation(LocationManager locationManager, Context context, LocationAvailableListener listener) {
         this.locationManager = locationManager;
         this.context = context;
+        this.locationAvailableListener = listener;
         updateLocation();
 
 
@@ -156,6 +159,7 @@ public class GeoLocation implements LocationListener{
     public void onLocationChanged(Location location) {
         try {
             locationManager.removeUpdates(this);
+            this.locationAvailableListener.onLocationAvailable();
         }catch (SecurityException e){
 
         }

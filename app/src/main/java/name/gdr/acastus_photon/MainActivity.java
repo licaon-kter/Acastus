@@ -31,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 import org.json.JSONArray;
@@ -53,7 +54,7 @@ import java.util.TimerTask;
 /**
  * The type Main activity.
  */
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements LocationAvailableListener {
     /**
      * The Labels.
      */
@@ -260,12 +261,17 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
+    public void onLocationAvailable() {
+        ImageView gpsIcon = (ImageView) findViewById(R.id.gps_icon);
+        gpsIcon.setVisibility(View.VISIBLE);
+    }
+
     /**
      * Get inputs.
      */
     void setupLocationUse(){
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        geoLocation = new GeoLocation(locationManager, getApplicationContext());
+        geoLocation = new GeoLocation(locationManager, getApplicationContext(), this);
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
         if (useLocation && isLocationEnabled()) {
             geoCoordinates = geoLocation.getLocation();
