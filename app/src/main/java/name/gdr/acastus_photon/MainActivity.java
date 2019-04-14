@@ -863,7 +863,7 @@ public class MainActivity extends AppCompatActivity{
         }
         String searchQuery;
         if (useLocation) {
-            searchQuery = serverAddress + "?" + "lat=" + curLat + "&lon=" + curLon + "&q=" + input;
+            searchQuery = serverAddress + "?" + "lat=" + curLat + "&lon=" + curLon + "&location_bias_scale=20" + "&q=" + input;
         } else {
             searchQuery = serverAddress + "?q=" + input;
         }
