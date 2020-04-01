@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Acastus Photon</string>
+    <string name="action_settings">Instellingen</string>
+    <string name="action_share_location">Locatie delen</string>
+    <string name="title_activity_settings">Instellingen</string>
+    <!-- Strings related to Settings -->
+    <!-- Example General settings -->
+    <string name="pref_header_general">Algemeen</string>
+    <string name="pref_header_server">Server</string>
+    <string name="allow_location_title">Locatie toestaan</string>
+    <string name="allow_location_description">Gebruik je locatie om resultaten in de buurt op te halen.</string>
+    <string name="unit_length_title">Kilometers gebruiken</string>
+    <string name="unit_lenth_description">Gebruik kilometers in plaats van mijlen.</string>
+    <string name="use_google_title">Google Maps-url gebruiken</string>
+    <string name="use_google_description">Gebruik een Google Maps-url in plaats van het type Geo-link.</string>
+    <string name="store_recents_title">Recente resultaten opslaan</string>
+    <string name="store_recents_description">Sla recente resultaten op voor later.</string>
+    <string name="pref_title_app_theme">App-thema</string>
+    <string name="pref_description_app_theme">Donker thema gebruiken</string>
+    <string name="server_url_setting">Serveradres</string>
+    <string name="clear_recents_setting">Recente zoekopdrachten wissen</string>
+    <string name="need_nav_app">Je moet Google Maps of een navigatie-app installeren.</string>
+    <string name="my_current_location">Mijn huidige locatie</string>
+    <string name="shared_location">Gedeelde locatie</string>
+    <string name="navigate">Navigeren</string>
+    <string name="copy_address_place">Adres/Plaats kopiëren naar klembord</string>
+    <string name="copy_gps">GPS-coördinaten kopiëren naar klembord</string>
+    <string name="share_this_location">Locatie delen</string>
+    <string name="share_my_location">Mijn locatie delen</string>
+    <string name="copied_to_clipboard">Gekopieerd naar het klembord</string>
+    <string name="search_address_place">Zoeken naar adres/plaats</string>
+    <string name="share_address_place">Adres/Plaats delen</string>
+    <string name="accessing_location">Bezig met opvragen van locatie...</string>
+    <string name="location_not_enabled">Locatie is niet ingeschakeld</string>
+    <string name="donate_button">Doneren</string>
+    <string name="pick_from_adress">Geo ophalen uit adres (Acastus Photon)</string>
+
+</resources>

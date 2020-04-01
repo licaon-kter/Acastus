@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Acastus Photon</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_share_location">Standort teilen</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <!-- Strings related to Settings -->
+    <!-- Example General settings -->
+    <string name="pref_header_general">Allgemeines</string>
+    <string name="pref_header_server">Server</string>
+    <string name="allow_location_title">Standortbestimmung erlauben</string>
+    <string name="allow_location_description">Verwenden Sie Ihren Standort, um Ergebnisse in Ihrer Nähe zurückzugeben.</string>
+    <string name="unit_length_title">Kilometer verwenden</string>
+    <string name="unit_lenth_description">Verwenden Sie Kilometer statt Meilen.</string>
+    <string name="use_google_title">Google Maps URL verwenden</string>
+    <string name="use_google_description">Verwenden Sie Google Maps URL statt des Geo-Linktyps.</string>
+    <string name="store_recents_title">Letzte Ergebnisse merken</string>
+    <string name="store_recents_description">Letzte Ergebnisse für spätere Nutzung speichern.</string>
+    <string name="pref_title_app_theme">Aussehen</string>
+    <string name="pref_description_app_theme">dunkel</string>
+    <string name="server_url_setting">Serveradresse</string>
+    <string name="clear_recents_setting">Letzte Ergebnisse löschen</string>
+    <string name="need_nav_app">Sie müssen eine Karten/Navigations App installiert haben.</string>
+    <string name="my_current_location">Mein aktueller Standort</string>
+    <string name="shared_location">Standort teilen</string>
+    <string name="navigate">Navigieren</string>
+    <string name="copy_address_place">Adresse/Ort in Zwischenablage kopieren</string>
+    <string name="copy_gps">GPS-Koordinaten in Zwischenablage kopieren</string>
+    <string name="share_this_location">Diese Position teilen</string>
+    <string name="share_my_location">Meinen Standort teilen</string>
+    <string name="copied_to_clipboard">In Zwischenablage kopiert</string>
+    <string name="search_address_place">Nach Adresse/Ort suchen</string>
+    <string name="share_address_place">Adresse/Ort teilen</string>
+    <string name="accessing_location">Ermittle Standort...</string>
+    <string name="location_not_enabled">Standortdienst ist nicht aktiviert</string>
+    <string name="donate_button">Spenden</string>
+    <string name="pick_from_adress">Geo aus der Adresse ermitteln (Acastus Photon)</string>
+</resources>
