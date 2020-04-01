@@ -12,19 +12,19 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import androidx.core.app.NavUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.util.List;
 
-/**
+/*
  * Author: Daniel Barnett
  */
 
