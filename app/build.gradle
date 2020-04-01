@@ -11,8 +11,8 @@ android {
         applicationId "name.gdr.acastus_photon"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 18
-        versionName "1.16"
+        versionCode 19
+        versionName "1.19"
     }
     buildTypes {
         release {

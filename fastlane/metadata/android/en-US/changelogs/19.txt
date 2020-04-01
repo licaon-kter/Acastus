@@ -1,0 +1,3 @@
+New Translations: nl and de
+Updated support libraries
+Added support for fastlane and crowdin translations
