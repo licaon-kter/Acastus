@@ -1,3 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*
+ * Project: https://github.com/gjedeer/Acastus
+ *
+ * Translation  via https://crowdin.com/project/acastus-photon-adress2geotrans/
+ * to en:
+ *
+ * These Texts will be shown in the app
+ -->
 <resources>
     <string name="app_name">Acastus Photon</string>
 
