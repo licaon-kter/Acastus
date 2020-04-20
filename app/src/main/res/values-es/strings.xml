@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*
+ * Project: https://github.com/gjedeer/Acastus
+ *
+ * Translation  via https://crowdin.com/project/acastus-photon-adress2geotrans/
+ * es 2020 by acrylicpaintboy
+ *
+ * These Texts will be shown in the app
+ -->
+<resources>
+    <string name="app_name">Foto de Acastus</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_share_location">Compartir ubicación</string>
+    <string name="title_activity_settings">Ajustes</string>
+    <!-- Strings related to Settings -->
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_header_server">Servidor</string>
+    <string name="allow_location_title">Permitir ubicación</string>
+    <string name="allow_location_description">Utilice su ubicación para obtener resultados cerca de usted.</string>
+    <string name="unit_length_title">Usar kilómetros</string>
+    <string name="unit_lenth_description">Utilice kilómetros en lugar de millas.</string>
+    <string name="use_google_title">Usar URL de Google Maps</string>
+    <string name="use_google_description">Utilice la URL de Google Maps en lugar del tipo de enlace de Geo.</string>
+    <string name="store_recents_title">Guardar Recientes</string>
+    <string name="store_recents_description">Guardar resultados recientes para su uso posterior.</string>
+    <string name="pref_title_app_theme">Tema App</string>
+    <string name="pref_description_app_theme">Usar tema oscuro</string>
+    <string name="server_url_setting">Dirección del servidor</string>
+    <string name="clear_recents_setting">Limpiar recientes</string>
+    <string name="need_nav_app">Debes tener instalada una aplicación de Mapas/Navegación.</string>
+    <string name="my_current_location">Mi ubicación actual</string>
+    <string name="shared_location">Ubicación compartida</string>
+    <string name="navigate">Navigate</string>
+    <string name="copy_address_place">Copiar dirección/lugar al portapapeles</string>
+    <string name="copy_gps">Copiar coordenadas GPS al portapapeles</string>
+    <string name="share_this_location">Compartir esta ubicación</string>
+    <string name="share_my_location">Compartir mi ubicación</string>
+    <string name="copied_to_clipboard">Copiado al portapapeles</string>
+    <string name="search_address_place">Buscar dirección/lugar</string>
+    <string name="share_address_place">Compartir dirección/lugar</string>
+    <string name="accessing_location">Accediendo a la ubicación...</string>
+    <string name="location_not_enabled">Ubicación no habilitada</string>
+    <string name="donate_button">Donar</string>
+    <string name="pick_from_adress">Elegir geo del progreso (Acastus Photon)</string>
+</resources>

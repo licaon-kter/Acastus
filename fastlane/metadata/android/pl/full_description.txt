@@ -1,0 +1,11 @@
+<p>Acastus Photon tłumaczy ulicę/miasto/nazwę lokalu na współrzędne
+geograficzne, które potem mogą być:</p>
+<ul>
+<li>otwarte w mapie aplikacji do map lub nawigacji takiej, jak OsmAnd, Maps.me, APhotoManager</li>
+<li>udostępnione innym osobom za pomocą opcji Udostępnij</li>
+</ul>
+<p>Oprogramowanie serwerowe Photon, z którym Acastus Photon łączy się 
+przez internet, jest otwartym zamiennikiem serwisów geokodowania takich,
+jak Google Maps, i można uruchomić je na własnym serwerze.</p>
+<p>Szczegóły odnośnie uruchomienia własnego serwera Photon znajduą się
+pod adresem https://github.com/komoot/photon</p>

@@ -16,4 +16,5 @@
     <!-- This becomes .../fastlane/metadata/android/short_description.txt.
       See https://f-droid.org/docs/Build_Metadata_Reference/#Summary -->
     <string name="short_description">Uma pesquisa de POI/endereço online para aplicativos de navegação</string>
+
 </resources>

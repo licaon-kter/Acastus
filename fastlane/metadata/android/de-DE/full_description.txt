@@ -1,11 +1,11 @@
-Übersetzt den Namen einer Straße/Stadt/Turistenattraktion in eine geo-coordinate
-die
-
-* in einer Navigations/Landkarten-app angezeigt werden kann (z.b. OsmAnd, Maps.me, APhotoManager)
-* per "senden/teilen" übermittelt werden kann.
-
-Die Photon-Server-Software, die Acastus-Photon über das
+<p>Übersetzt den Namen einer Straße/Stadt/Turistenattraktion in eine geo-coordinate
+die</p>
+<ul>
+<li>in einer Navigations/Landkarten-app angezeigt werden kann (z.b. OsmAnd, Maps.me, APhotoManager)</li>
+<li>per "senden/teilen" übermittelt werden kann.</li>
+</ul>
+<p>Die Photon-Server-Software, die Acastus-Photon über das
 Internet aufruft, ist ein Ersatz für Google Maps und andere
 "geocoding services" die auf einem eigenen server betrieben
 werden kann. Siehe https://github.com/komoot/photon
-.
+.</p>

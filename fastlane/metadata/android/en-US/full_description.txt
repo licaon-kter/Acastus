@@ -1,12 +1,11 @@
-Acastus-Photon translates name of street/city/point-of-interest
-to geo-coordinate which can be
-
-* opened in a map or navigation app such as OsmAnd, Maps.me, APhotoManager.
-* shared with other people via the send command.
-
-The Photon-Server-Software which Acastus-Photon calls over the internet
+<p>Acastus-Photon translates name of street/city/point-of-interest
+to geo-coordinate which can be</p>
+<ul>
+<li>opened in a map or navigation app such as OsmAnd, Maps.me, APhotoManager.</li>
+<li>shared with other people via the send command.</li>
+</ul>
+<p>The Photon-Server-Software which Acastus-Photon calls over the internet
 is a replacement for Google Maps and other geocoding services that you
-can run on your own server.
-
-Details on setting up your own Photon instance are here: https://github.com/komoot/photon
-.
+can run on your own server.</p>
+<p>Details on setting up your own Photon instance are here: https://github.com/komoot/photon
+.</p>

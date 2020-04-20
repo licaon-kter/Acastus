@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+/*
+ * translation pt 2020 by acrylicpaintboy
+ * Project: https://github.com/gjedeer/Acastus
+ *
+ * Translation  via https://crowdin.com/project/acastus-photon-adress2geotrans/
+ * sv 2020 by acrylicpaintboy
+ *
+ * These Texts will be shown in the app
+ -->
+<resources>
+    <string name="app_name">Acastus Foton</string>
+    <string name="action_settings">Inställningar</string>
+    <string name="action_share_location">Dela plats</string>
+    <string name="title_activity_settings">Inställningar</string>
+    <!-- Strings related to Settings -->
+    <!-- Example General settings -->
+    <string name="pref_header_general">Allmänt</string>
+    <string name="pref_header_server">Server</string>
+    <string name="allow_location_title">Tillåt plats</string>
+    <string name="allow_location_description">Använd din plats för att returnera resultat nära dig.</string>
+    <string name="unit_length_title">Använd kilometer</string>
+    <string name="unit_lenth_description">Använd kilometer istället för miles.</string>
+    <string name="use_google_title">Använd Google Maps URL</string>
+    <string name="use_google_description">Använd Google Maps URL istället för Geo link typ.</string>
+    <string name="store_recents_title">Spara senaste</string>
+    <string name="store_recents_description">Spara de senaste resultaten för senare användning.</string>
+    <string name="pref_title_app_theme">App Tema</string>
+    <string name="pref_description_app_theme">Använd mörkt tema</string>
+    <string name="server_url_setting">Serverns adress</string>
+    <string name="clear_recents_setting">Rensa senaste</string>
+    <string name="need_nav_app">Du måste ha en Maps/Navigationsapp installerad.</string>
+    <string name="my_current_location">Min nuvarande plats</string>
+    <string name="shared_location">Delad plats</string>
+    <string name="navigate">Navigate</string>
+    <string name="copy_address_place">Kopiera adress/plats till urklipp</string>
+    <string name="copy_gps">Kopiera GPS-koordinater till urklipp</string>
+    <string name="share_this_location">Dela denna plats</string>
+    <string name="share_my_location">Dela min plats</string>
+    <string name="copied_to_clipboard">Kopierad till urklipp</string>
+    <string name="search_address_place">Sök efter adress/plats</string>
+    <string name="share_address_place">Dela adress/plats</string>
+    <string name="accessing_location">Åtkomst till plats...</string>
+    <string name="location_not_enabled">Plats är inte aktiverad</string>
+    <string name="donate_button">Donera</string>
+    <string name="pick_from_adress">Välj geo från Adress (Acastus Photon)</string>
+</resources>
