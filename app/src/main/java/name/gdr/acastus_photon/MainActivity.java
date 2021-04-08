@@ -778,7 +778,11 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
             try {
                 name = properties.getString("label");
             } catch (JSONException e) {
-                name = properties.getString("name");
+                try {
+                    name = properties.getString("name");
+                } catch (JSONException e) {
+                    name = properties.getString("type");
+                }
             }
             ResultNode tempNode = new ResultNode();
             tempNode.lat = lat;
