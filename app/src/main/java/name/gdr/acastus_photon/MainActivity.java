@@ -780,7 +780,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
             } catch (JSONException e) {
                 try {
                     name = properties.getString("name");
-                } catch (JSONException e) {
+                } catch (JSONException ex) {
                     name = properties.getString("type");
                 }
             }
