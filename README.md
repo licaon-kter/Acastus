@@ -12,6 +12,8 @@ apps.
 
 Share your location to other people, knowing full well that the information is kept private.
 
+![](https://raw.githubusercontent.com/gjedeer/Acastus/master/fastlane/metadata/android/en-US/images/phoneScreenshots/acastus-photon-256.png)
+
 Acastus Photon relies on [Photon](http://photon.komoot.io/api) as the backend, a replacement for Google Maps and other geocoding services
 that you can run on your own server. It uses the photon-api to fetch results to your phone, allowing
 you to search for places, then open and navigate to the result in your preferred 
@@ -29,3 +31,21 @@ Daniel welcomes donations:
 
 [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VTUD5XRYMT686&lc=US&item_name=Acastus&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
+----
+
+Some apps from f-droid.org that are compatible with Acastus
+
+[OsmAnd+](https://f-droid.org/en/packages/net.osmand.plus)
+Global Mobile Map Viewing & Navigation for Offline and Online OSM Maps
+
+[Offi](https://f-droid.org/en/packages/de.schildbach.oeffi)
+King of public transit planning!
+
+[Transportr](https://f-droid.org/en/packages/de.grobox.liberario)
+Public Transport Companion
+
+[c:geo via izzysoft-f-droid-repository](https://apt.izzysoft.de/fdroid/index/apk/cgeo.geocaching)
+powerful geocaching app
+
+[A Photo Manager](https://f-droid.org/en/packages/de.k3b.android.androFotoFinder)
+Manage local photos: Find/Copy/Edit-Exif and show in Gallery or Map.
