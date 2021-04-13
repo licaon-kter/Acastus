@@ -12,7 +12,7 @@ apps.
 
 Share your location to other people, knowing full well that the information is kept private.
 
-Acastus Photon relies on [Photon](http://photon.komoot.de/) as the backend, a replacement for Google Maps and other geocoding services
+Acastus Photon relies on [Photon](http://photon.komoot.io/api) as the backend, a replacement for Google Maps and other geocoding services
 that you can run on your own server. It uses the photon-api to fetch results to your phone, allowing
 you to search for places, then open and navigate to the result in your preferred 
 navigation app such as OsmAnd or Maps.me.
