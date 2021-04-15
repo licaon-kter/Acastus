@@ -1,1 +1,3 @@
 New Translation: it, no, pt, pt-BR, sv, es, pl
+# see https://gradle.org/release-checksums/
+distributionSha256Sum=
