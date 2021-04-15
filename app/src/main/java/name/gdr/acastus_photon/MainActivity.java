@@ -407,7 +407,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
             return location;
         }else {
             // isPickGeo always use geo format.
-            location = "geo:" + lat + "," + lon + "?q="+ lat + "+" + lon + "("+label+")";
+            location = "geo:" + lat + "," + lon + "?q="+ lat + "+" + lon;
             if (label != null) {
                 label = label.replace(" " , "+");
                 label = label.replace("," , "+");
