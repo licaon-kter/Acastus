@@ -18,13 +18,22 @@ public class ResultNode {
         this.distance = geoLocation.distance(curLat, lat, curLon, lon, kilometers);
     }
 
+    /* Format the node for displaying in search results */
     public String getLabel(Boolean useLocation, Boolean kilometers, Double curLat, Double curLon, GeoLocation geoLocation) {
         String thisLabel = "";
         if (useLocation) {
             if (kilometers){
-                thisLabel = name + " : " + distance + " km";
+                if(this.name != null && this.name != "") {
+                    thisLabel = name + " : " + distance + " km";
+                } else {
+                    thisLabel = distance + " km";
+                }
             }else{
-                thisLabel = name + " : " + distance + " mi";
+                if(this.name != null && this.name != "") {
+                    thisLabel = name + " : " + distance + " mi";
+                } else {
+                    thisLabel = distance + " mi";
+                }
             }
         } else {
             thisLabel = name;
@@ -32,6 +41,13 @@ public class ResultNode {
         if (this.type != null) {
             thisLabel += " (" + this.type + ")";
         }
+        thisLabel += this.getAddressLabel();
+
+        return thisLabel;
+    }
+
+    public String getAddressLabel() {
+        String thisLabel = "";
         if (this.street != null || this.city != null) {
             thisLabel += "\n";
             if(this.city != null) {
@@ -46,5 +62,19 @@ public class ResultNode {
         }
 
         return thisLabel;
+    }
+
+    /* Format the result node for history / recent items list */
+    public String getRecentsLabel() {
+        if(this.name != null && this.name != "") {
+            return name;
+        }
+
+        return(this.getAddressLabel());
+    }
+
+    /* Format the result node for nav app */
+    public String getNavLabel() {
+        return this.getRecentsLabel();
     }
 }

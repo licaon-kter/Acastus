@@ -328,7 +328,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                     return;
                 }
                 ResultNode tempNode = lookupList.get(position);
-                setRecents(tempNode.name);
+                setRecents(tempNode.getRecentsLabel());
                 searchText.setText("");
 
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getAdressUrl(tempNode.lat, tempNode.lon, null)));
@@ -620,10 +620,10 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                     return;
                 }
                 ResultNode tempNode = lookupList.get(position);
-                setRecents(tempNode.name);
+                setRecents(tempNode.getRecentsLabel());
                 EditText searchQuery = (EditText) findViewById(R.id.searchText);
-                searchQuery.setText(tempNode.name);
-                String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.name);
+                searchQuery.setText(tempNode.getRecentsLabel());
+                String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.getNavLabel());
                 geoCoords = geoCoords.replace(' ', '+');
                 openInNavApp(geoCoords);
             }
@@ -645,20 +645,20 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         ResultNode tempNode = lookupList.get(position);
-                        setRecents(tempNode.name);
+                        setRecents(tempNode.getRecentsLabel());
                         if (which == 0){
-                            String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.name);
+                            String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.getNavLabel());
                             geoCoords = geoCoords.replace(' ', '+');
                             openInNavApp(geoCoords);
                         }
 
                         if (which == 1){
-                            String shareBody = tempNode.name + "\n" + getAdressUrl(tempNode.lat, tempNode.lon, tempNode.name);
+                            String shareBody = tempNode.getNavLabel() + "\n" + getAdressUrl(tempNode.lat, tempNode.lon, tempNode.getNavLabel());
                             sharePlace(shareBody);
                         }
 
                         if (which == 2){
-                            String copyBody = tempNode.name;
+                            String copyBody = tempNode.getNavLabel();
                             copyToClipboard(copyBody);
                         }
 
@@ -781,7 +781,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                 try {
                     name = properties.getString("name");
                 } catch (JSONException ex) {
-                    name = properties.getString("type");
+                    name = "";
                 }
             }
             ResultNode tempNode = new ResultNode();
