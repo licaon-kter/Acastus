@@ -11,8 +11,9 @@ android {
         applicationId "name.gdr.acastus_photon"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 22
-        versionName "1.22"
+        versionCode 23
+        versionName "1.23"
+        // 1.23 : #10 fix displayed names for addresses with numbers
         // 1.22 : #10 Fix when there are numbers in adress. Lib-Updates
         // 1.21 : New Translations: it, no, pt, pt-BR, sv, es, pl
         // 1.20 : New Translations: fr
