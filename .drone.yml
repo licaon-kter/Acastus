@@ -1,0 +1,61 @@
+kind: pipeline
+type: docker
+name: default
+steps:
+
+- name: restore cache
+  image: plugins/s3-cache
+  settings:
+    pull: true
+    endpoint: 
+      from_secret: MINIO_URL
+    root: /drone-cache
+    access_key:
+      from_secret: MINIO_ACCESS_KEY
+    secret_key:
+      from_secret: MINIO_SECRET_KEY
+    restore: true
+  
+- name: gradle build
+  image: androidsdk/android-29:latest
+  environment:
+    M2_HOME: /drone/src/.m2
+    MAVEN_HOME: /drone/src/.m2
+    GRADLE_USER_HOME: /drone/src/.gradle
+  commands:
+  - pwd
+  - ./gradlew --no-daemon assembleDebug
+
+- name: upload artifact
+  image: plugins/s3
+  settings:
+    endpoint: 
+      from_secret: MINIO_URL
+    access_key:
+      from_secret: MINIO_ACCESS_KEY
+    secret_key:
+      from_secret: MINIO_SECRET_KEY
+    bucket: acastus-artifacts
+    source: app/build/outputs/apk/debug/*
+    target: /${DRONE_BUILD_NUMBER}
+    strip_prefix: app/build/outputs/apk/debug/
+    path_style: true
+
+
+- name: rebuild cache
+  image: plugins/s3-cache
+  settings:
+    pull: true
+    endpoint: 
+      from_secret: MINIO_URL
+    root: /drone-cache
+    access_key:
+      from_secret: MINIO_ACCESS_KEY
+    secret_key:
+      from_secret: MINIO_SECRET_KEY
+    rebuild: true
+    mount:
+      - /drone/src/.gradle
+
+    when:
+      event: push
