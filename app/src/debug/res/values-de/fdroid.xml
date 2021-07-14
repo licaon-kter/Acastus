@@ -25,6 +25,8 @@ die
 * in einer Navigations/Landkarten-app angezeigt werden kann (z.b. OsmAnd, Maps.me, APhotoManager)
 * per "senden/teilen" übermittelt werden kann.
 
+Akastus kann durch Klicken auf eine Adresse im Android Telefonbuch "Kontakte" (SimpleContatcs) aufgerufen werden.
+
 Die Photon-Server-Software, die Acastus-Photon über das
 Internet aufruft, ist ein Ersatz für Google Maps und andere
 "geocoding services" die auf einem eigenen server betrieben

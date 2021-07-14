@@ -4,6 +4,7 @@ geograficzne, które potem mogą być:</p>
 <li>otwarte w mapie aplikacji do map lub nawigacji takiej, jak OsmAnd, Maps.me, APhotoManager</li>
 <li>udostępnione innym osobom za pomocą opcji Udostępnij</li>
 </ul>
+<p>You can start Acastus by clicking on an adresss in the Android Contacts app (SimpleContatcs).</p>
 <p>Oprogramowanie serwerowe Photon, z którym Acastus Photon łączy się 
 przez internet, jest otwartym zamiennikiem serwisów geokodowania takich,
 jak Google Maps, i można uruchomić je na własnym serwerze.</p>

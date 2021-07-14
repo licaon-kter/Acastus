@@ -12,6 +12,8 @@ apps.
 
 Share your location to other people, knowing full well that the information is kept private.
 
+You can start Acastus by clicking on an adresss in the SimpleContatcs.
+
 ![](https://raw.githubusercontent.com/gjedeer/Acastus/master/fastlane/metadata/android/en-US/images/phoneScreenshots/01.png)
 
 Acastus Photon relies on [Photon](http://photon.komoot.io/api) as the backend, a replacement for Google Maps and other geocoding services

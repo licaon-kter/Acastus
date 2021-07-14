@@ -46,8 +46,12 @@ import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import de.k3b.geo.api.GeoPointDto;
+import de.k3b.geo.api.IGeoPointInfo;
+import de.k3b.geo.io.GeoUri;
 
-/**
+
+/*
  * Author: Daniel Barnett
  */
 
@@ -136,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
      * to caller insted of show in map */
     private boolean isPickGeo = false;
 
+    /** if true app is processing fuzzy geo search */
+    private boolean mustForwardGeo = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -147,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         makeRequest = new MakeAPIRequest();
         context = getApplicationContext();
@@ -219,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
     }
 
     public void setupMapButton(){
-        mViewMapButton = (ImageButton) findViewById(R.id.imageButton);
+        mViewMapButton = findViewById(R.id.imageButton);
 
         mViewMapButton.setOnClickListener(new View.OnClickListener() {
 
@@ -262,7 +269,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
     }
 
     public void onLocationAvailable() {
-        ImageView gpsIcon = (ImageView) findViewById(R.id.gps_icon);
+        ImageView gpsIcon = findViewById(R.id.gps_icon);
         gpsIcon.setVisibility(View.VISIBLE);
     }
 
@@ -284,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
 
 
     private void getInputs() {
-        searchText = (EditText) findViewById(R.id.searchText);
+        searchText = findViewById(R.id.searchText);
         handleIntent();
         searchText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -322,7 +329,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 Object o = resultsList.getItemAtPosition(position);
-                EditText searchQuery = (EditText) findViewById(R.id.searchText);
+                EditText searchQuery = findViewById(R.id.searchText);
                 searchQuery.setText(o.toString());
                 if (lookupList.isEmpty()) {
                     return;
@@ -423,20 +430,56 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
      */
     private void handleIntent() {
         intent = getIntent();
-        action = (intent == null) ? null : intent.getAction();
-        if (action != null) {
-            type = intent.getType();
+        if (intent != null) {
+            action = intent.getAction();
             String schema = intent.getScheme();
-            if (Intent.ACTION_SEND.equals(action) && type != null) {
-                if ("text/plain".equals(type)) {
-                    handleSendText(intent); // Handle text being sent
+            isPickGeo = (Intent.ACTION_PICK.compareTo(action) == 0) && (schema != null) && ("geo".compareTo(schema) == 0);
+
+            Uri uri = intent.getData();
+            if (uri != null) {
+                GeoUri parser = new GeoUri(GeoUri.OPT_DEFAULT);
+                IGeoPointInfo geo = parser.fromUri(uri.toString());
+                if (geo != null) {
+                    if (!GeoPointDto.isEmpty(geo) && (!isPickGeo)) {
+                        // non-fuzzy-geo that already has lat/lon
+                        forwardLocation(action, intent.getType(), geo.getLatitude(), geo.getLongitude(), geo.getName());
+                        finish();
+                        return;
+                    } else if (geo.getName() != null) {
+                        // fuzzy geo with seach-query and without lat/lon
+                        mustForwardGeo = true;
+                        searchText.setText(geo.getName());
+                        startSearch();
+                    }
                 }
-            } else if (Intent.ACTION_VIEW.equals(action)) {
-                handleActionView(intent);
-            } else if ((Intent.ACTION_PICK.compareTo(action) == 0) && (schema != null) && ("geo".compareTo(schema) == 0)) {
-                handlePickGeoInit();
+            }
+            if (action != null) {
+                type = intent.getType();
+                if (Intent.ACTION_SEND.equals(action) && type != null) {
+                    if ("text/plain".equals(type)) {
+                        handleSendText(intent); // Handle text being sent
+                    }
+                } else if (Intent.ACTION_VIEW.equals(action)) {
+                    handleActionView(intent);
+                } else {
+                    if (isPickGeo) {
+                        handlePickGeoInit();
+                    }
+                }
             }
         }
+    }
+
+    private void forwardLocation(String action, String type, double latitude, double longitude, String name) {
+        String uri = getAdressUrl(latitude, longitude, name);
+        forwardLocation(action, type, uri);
+    }
+
+    private void forwardLocation(String action, String type, String uri) {
+        Intent intent = new Intent(action);
+        intent.setDataAndTypeAndNormalize(Uri.parse(uri), type);
+        startActivity(Intent.createChooser(intent, getResources().getString(R.string.action_share_location)));
+        finish();
     }
 
     /**
@@ -455,7 +498,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
     private void resetTime() {
         mapTime = true;
         canNav = false;
-        EditText searchQuery = (EditText) findViewById(R.id.searchText);
+        EditText searchQuery = findViewById(R.id.searchText);
         String urlString = searchQuery.getText().toString();
         results = null;
         results = new GetResults();
@@ -504,7 +547,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
         sharedText = sharedText.replace("+", " ");
         sharedText.replace("," , " ");
         if (sharedText != null) {
-            EditText searchQuery = (EditText) findViewById(R.id.searchText);
+            EditText searchQuery = findViewById(R.id.searchText);
             searchQuery.setText(sharedText);
             startSearch();
         }
@@ -520,7 +563,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
             URI uri = new URI(intent.getData().toString());
             String q = uri.getQuery();
             if (q != null) {
-                EditText searchQuery = (EditText) findViewById(R.id.searchText);
+                EditText searchQuery = findViewById(R.id.searchText);
                 String addr = "";
                 addr = addr.replace("&", " ");
                 int indexLoc = q.indexOf("loc");
@@ -538,7 +581,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
         }
     }
 
-    void sharePlace(String shareBody) {
+    void sendAsText(String shareBody) {
         Intent sharingLocation = new Intent(android.content.Intent.ACTION_SEND);
         sharingLocation.setType("text/plain");
         sharingLocation.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getString(R.string.shared_location));
@@ -553,19 +596,23 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                 Toast.LENGTH_LONG).show();
     }
 
-    void openInNavApp(String geoCoords){
+    void viewAsGeo(String geoCoords){
         try {
-            Intent openInMaps = new Intent(Intent.ACTION_VIEW, Uri.parse(geoCoords));
-            if (isPickGeo) {
-                setResult(Activity.RESULT_OK, openInMaps);
-                finish();
+            if (this.mustForwardGeo) {
+                forwardLocation(intent.getAction(), intent.getType(), geoCoords);
             } else {
-                startActivity(openInMaps);
-                searchText.setText("");
+                Intent openInMaps = new Intent(Intent.ACTION_VIEW, Uri.parse(geoCoords));
+                if (isPickGeo) {
+                    setResult(Activity.RESULT_OK, openInMaps);
+                    finish();
+                } else {
+                    startActivity(openInMaps);
+                    searchText.setText("");
+                }
             }
         } catch (ActivityNotFoundException e) {
             Toast.makeText(MainActivity.this, getResources().getString(R.string.need_nav_app),
-                    Toast.LENGTH_LONG).show();
+                Toast.LENGTH_LONG).show();
         }
     }
 
@@ -597,7 +644,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
      */
     private void updateList(String[] data) {
         ArrayAdapter<?> adapter = new ArrayAdapter<Object>(this, android.R.layout.simple_selectable_list_item, data);
-        resultsList = (ListView) findViewById(R.id.resultsList);
+        resultsList = findViewById(R.id.resultsList);
         resultsList.setAdapter(adapter);
         resultsList.setClickable(true);
     }
@@ -621,11 +668,11 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                 }
                 ResultNode tempNode = lookupList.get(position);
                 setRecents(tempNode.getRecentsLabel());
-                EditText searchQuery = (EditText) findViewById(R.id.searchText);
+                EditText searchQuery = findViewById(R.id.searchText);
                 searchQuery.setText(tempNode.getRecentsLabel());
                 String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.getNavLabel());
                 geoCoords = geoCoords.replace(' ', '+');
-                openInNavApp(geoCoords);
+                viewAsGeo(geoCoords);
             }
         });
 
@@ -649,12 +696,12 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                         if (which == 0){
                             String geoCoords = getAdressUrl(tempNode.lat, tempNode.lon, tempNode.getNavLabel());
                             geoCoords = geoCoords.replace(' ', '+');
-                            openInNavApp(geoCoords);
+                            viewAsGeo(geoCoords);
                         }
 
                         if (which == 1){
                             String shareBody = tempNode.getNavLabel() + "\n" + getAdressUrl(tempNode.lat, tempNode.lon, tempNode.getNavLabel());
-                            sharePlace(shareBody);
+                            sendAsText(shareBody);
                         }
 
                         if (which == 2){
@@ -681,7 +728,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
     private void updateRecentsList() {
         String recentsStore = prefs.getString("recents", null);
         JSONArray mJSONArray = null;
-        resultsList = (ListView) findViewById(R.id.resultsList);
+        resultsList = findViewById(R.id.resultsList);
         if (recentsStore != null) {
             try {
                 mJSONArray = new JSONArray(recentsStore);
@@ -706,7 +753,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                     Object result = resultsList.getItemAtPosition(position);
-                    EditText searchQuery = (EditText) findViewById(R.id.searchText);
+                    EditText searchQuery = findViewById(R.id.searchText);
                     searchQuery.setText(result.toString());
                 }
             });
@@ -725,7 +772,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                         public void onClick(DialogInterface dialog, int which) {
                             String name = recents.get(position);
                             setRecents(name);
-                            EditText searchQuery = (EditText) findViewById(R.id.searchText);
+                            EditText searchQuery = findViewById(R.id.searchText);
 
                             if (which == 0){
                                 searchQuery.setText(name);
@@ -733,7 +780,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
 
                             if (which == 1){
                                 String shareBody = name;
-                                sharePlace(shareBody);
+                                sendAsText(shareBody);
                             }
 
                             if (which == 2){
@@ -749,7 +796,7 @@ public class MainActivity extends AppCompatActivity implements LocationAvailable
                 }
             });
         } else {
-            resultsList = (ListView) findViewById(R.id.resultsList);
+            resultsList = findViewById(R.id.resultsList);
             resultsList.clearChoices();
         }
     }

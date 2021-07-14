@@ -38,8 +38,6 @@ public class GeoLocation implements LocationListener{
         this.context = context;
         this.locationAvailableListener = listener;
         updateLocation();
-
-
     }
 
     public void updateLocation(){

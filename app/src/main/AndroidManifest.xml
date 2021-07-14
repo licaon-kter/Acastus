@@ -28,19 +28,34 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
+                <!-- translate internet map services google, openstreetmap, yandex, here to geo-uri -->
                 <data android:scheme="http" />
                 <data android:scheme="https" />
                 <data android:host="maps.google.com" />
+                <data android:host="maps.google.de" />
+                <data android:host="www.openstreetmap.org" />
+                <data android:host="openstreetmap.org" />
+
+                <data android:host="maps.yandex.ru"  />
+                <data android:host="maps.yandex.com" />
+
+                <data android:host="here.com" />
+                <data android:host="www.here.com" />
+                <data android:host="share.here.com" />
+                <data android:host="goto.here.com" />
+                <data android:host="go.here.com" />
+                <data android:host="wego.here.com" />
 
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
 
-            <!-- pick for "geo:" with all mimes (*/*) -->
+            <!-- pick/send/view for "geo:" with all mimes (*/*) -->
             <intent-filter android:label="@string/pick_from_adress">
                 <action android:name="android.intent.action.PICK" />
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -49,9 +64,11 @@
                 <data android:scheme="geo" />
             </intent-filter>
 
-            <!-- pick for "geo:" without mimes -->
+            <!-- pick/send/view for "geo:" without mimes -->
             <intent-filter android:label="@string/pick_from_adress">
                 <action android:name="android.intent.action.PICK" />
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />

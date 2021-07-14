@@ -43,4 +43,5 @@
     <string name="location_not_enabled">Standortdienst ist nicht aktiviert</string>
     <string name="donate_button">Spenden</string>
     <string name="pick_from_adress">Geo aus der Adresse ermitteln (Acastus Photon)</string>
+    <string name="hint_enter_address_poi">Eingabe Addresse/Sehenswürdigkeit</string>
 </resources>

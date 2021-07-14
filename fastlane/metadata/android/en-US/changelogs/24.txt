@@ -1,1 +1,5 @@
-...todo...
+#16 You can start Acastus by clicking on an adresss in SimpleContatcs
+to translate and viw a postal adress in a map without invoking google.
+
+Implemented internet map services translation from
+google-maps, openstreetmap, yandex, here to a geo-uri.

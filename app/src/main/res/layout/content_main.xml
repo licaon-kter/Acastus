@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchText"
-        android:hint="Enter Address/POI"
+        android:hint="@string/hint_enter_address_poi"
         android:imeOptions="flagNoFullscreen"
         android:inputType="textFilter"
         android:layout_alignParentTop="true"
