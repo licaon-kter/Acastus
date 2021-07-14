@@ -3,3 +3,6 @@ to translate and viw a postal adress in a map without invoking google.
 
 Implemented internet map services translation from
 google-maps, openstreetmap, yandex, here to a geo-uri.
+
+Thankyou to "QWERT (lurenjia01)" for new Chinese Simplified (zh-CN) translation
+Thankyou to "cimbrum" for new Romanian (ro) translation
