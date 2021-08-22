@@ -1,0 +1,8 @@
+<p>Acastus-Photo překládá jména ulic/měst, nebo bodů zájmu na geo-souřadnice, které poté lze</p>
+<ul>
+<li>otevřít v mapách, nebo navigační aplikaci, například v OsmAnd, Maps.me, APhotoManager.</li>
+<li>sdílet s ostatními lidmi</li>
+</ul>
+<p>Můžete zapnout Acastus kliknutím na libovolnou adresu v Android aplikaci pro kontakty (SimpleContacts).</p>
+<p>Photon-Server-Software, jež Acastus-Photon kontaktuje přes internet je náhradou za Google Mapy a další geokódové služby, které můžete provozovat na svém vlastním serveru.</p>
+<p>Detaily, týkající se nastavení vaší vlastní instance  najdete zde: https://github.com/komoot/photon.</p>

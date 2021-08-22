@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+* Project: https://github.com/gjedeer/Acastus
+*
+* Translation  via https://crowdin.com/project/acastus-photon-adress2geotrans/
+* to cs: 2021-08-19 by luxq5ags
+*/
+ -->
+<resources>
+    <!-- This becomes .../fastlane/metadata/android/short_description.txt.
+    See https://f-droid.org/docs/Build_Metadata_Reference/#Summary -->
+    <string name="short_description">Online adresa/POI pro navigační aplikace.</string>
+    <!-- This becomes .../fastlane/metadata/android/full_description.txt.
+    See https://f-droid.org/docs/Build_Metadata_Reference/#Description
+
+    strings.xml.about_content_about and fdroid.xml.full_description  have the same content.
+     strings.xml.about_content_about is in html format to be displayed in apps aboutbox.
+     fdroid.xml.full_description is in simple markdown syntax to be displayed in fdroid apstore
+     and in github homepage.
+     -->
+    <string name="full_description"><![CDATA[Acastus-Photo překládá jména ulic/měst, nebo bodů zájmu na geo-souřadnice, které poté lze
+
+* otevřít v mapách, nebo navigační aplikaci, například v OsmAnd, Maps.me, APhotoManager.
+* sdílet s ostatními lidmi
+
+Můžete zapnout Acastus kliknutím na libovolnou adresu v Android aplikaci pro kontakty (SimpleContacts).
+
+Photon-Server-Software, jež Acastus-Photon kontaktuje přes internet je náhradou za Google Mapy a další geokódové služby, které můžete provozovat na svém vlastním serveru.
+
+Detaily, týkající se nastavení vaší vlastní instance  najdete zde: https://github.com/komoot/photon.]]></string>
+</resources>
