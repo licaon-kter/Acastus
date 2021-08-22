@@ -8,8 +8,9 @@ android {
         applicationId "name.gdr.acastus_photon"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 24
-        versionName "1.24"
+        versionCode 25
+        versionName "1.25"
+        // 1.25 : #13 GPS energy efficiency, #19 Fixed Settings-Server icon, New translation cs
         // 1.24 : #16 translate fuzzy geo-uri (without lat/lon) to non-fuzzy geo (with lat/lon)
         // 1.23 : #10 fix displayed names for addresses with numbers
         // 1.22 : #10 Fix when there are numbers in adress. Lib-Updates

@@ -1,1 +1,3 @@
-...todo...
+* #13 Fixed Improve GPS energy efficiency
+* #19 Fixed Settings-Server icon
+* added new translation cs

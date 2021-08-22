@@ -16,6 +16,11 @@ You can start Acastus by clicking on an adresss in the SimpleContatcs.
 
 ![](https://raw.githubusercontent.com/gjedeer/Acastus/master/fastlane/metadata/android/en-US/images/phoneScreenshots/01.png)
 
+[Translations via crowdin.com](https://crowdin.com/project/acastus-photon-adress2geotrans): cs, de, es, fr, it, ja, nl, no, pl, pt-BR, ro, ru, sv, zh-CN
+* [![Crowdin](https://badges.crowdin.net/acastus-photon-adress2geotrans/localized.svg)](https://crowdin.com/project/acastus-photon-adress2geotrans) [Help us to translate into other languages.](https://crowdin.com/project/acastus-photon-adress2geotrans)
+
+----
+
 Acastus Photon relies on [Photon](http://photon.komoot.io/api) as the backend, a replacement for Google Maps and other geocoding services
 that you can run on your own server. It uses the photon-api to fetch results to your phone, allowing
 you to search for places, then open and navigate to the result in your preferred 
@@ -26,6 +31,8 @@ Details on setting up your own Photon instance are here: https://github.com/komo
 [Acastus](https://github.com/DanielBarnett714/Acastus) has been originally created by DanielBarnett714 and used [Pelias](https://pelias.io) / Mapzen backend. This fork is maintained by k3b and [GDR!](https://gdr.name/) and uses Photon backend hosted by [Komoot](https://komoot.de/). You can use your own backend in settings. The fork exists because Mapzen went bankrupt and there don't seem to be any other public Pelias instances. Also, Photon seems to do a better job at free text searches.
 
 Acastus is the son of Pelias in Greek mythology and using this name for my fork doesn't make sense, but who cares.
+
+---
 
 Daniel welcomes donations:
 
