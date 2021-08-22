@@ -44,7 +44,7 @@ public class GeoLocation implements LocationListener{
         Criteria criteria = new Criteria();
         String bestProvider = String.valueOf(locationManager.getBestProvider(criteria, true)).toString();
         try {
-            locationManager.requestLocationUpdates(bestProvider, 60000, 15, this);
+            locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, 60000, 15, this);
             Handler h = new Handler(Looper.getMainLooper());
             h.post(new Runnable() {
                 public void run() {
