@@ -9,7 +9,7 @@
 
     <header
         android:fragment="name.gdr.acastus_photon.SettingsActivity$ServerPreferenceFragment"
-        android:icon="@drawable/ic_sync_black_24dp"
+        android:icon="@android:drawable/ic_menu_mylocation"
         android:title="@string/pref_header_server" />
 
 </preference-headers>
