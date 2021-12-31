@@ -1,12 +1,8 @@
-<p>Übersetzt den Namen einer Straße/Stadt/Turistenattraktion in eine geo-coordinate
-die</p>
+<p>Acastus-Photon übersetzt den Namen einer Straße/Stadt/Sehenswürdigkeit in Geo Koordinaten, die</p>
 <ul>
-<li>in einer Navigations/Landkarten-app angezeigt werden kann (z.b. OsmAnd, Maps.me, APhotoManager)</li>
-<li>per "senden/teilen" übermittelt werden kann.</li>
+<li>in einer Navigations-/Karten App angezeigt werden können (z.b. OsmAnd, Maps.me, APhotoManager)</li>
+<li>über die "Teilen"-Funktion von Android verschickt werden können</li>
 </ul>
-<p>Akastus kann durch Klicken auf eine Adresse im Android Telefonbuch "Kontakte" (SimpleContatcs) aufgerufen werden.</p>
-<p>Die Photon-Server-Software, die Acastus-Photon über das
-Internet aufruft, ist ein Ersatz für Google Maps und andere
-"geocoding services" die auf einem eigenen server betrieben
-werden kann. Siehe https://github.com/komoot/photon
-.</p>
+<p>Der Internetdienst "Photon", den Acastus-Photon zum auflösen von Adressen verwendet,
+ist eine Alternative zur Google Maps API und anderen Geocoding Diensten,
+welche auf einem eigenen Server betrieben werden kann (siehe https://github.com/komoot/photon).</p>

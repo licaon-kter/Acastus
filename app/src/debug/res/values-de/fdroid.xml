@@ -3,7 +3,7 @@
  * Project: https://github.com/gjedeer/Acastus
  *
  * Translation  via https://crowdin.com/project/acastus-photon-adress2geotrans/
- * to de: 2020 by k3b
+ * to de: 2020 by k3b, 2021-08 by Leso_KN
  *
  * These Texts will be shown as programdescription in the fdroid app store
  *
@@ -15,22 +15,22 @@
     <!-- This becomes .../fastlane/metadata/android/short_description.txt.
     See https://f-droid.org/docs/Build_Metadata_Reference/#Summary -->
     <string name="short_description">Online-Suche nach Adressen/POIs für Navigations-Apps</string>
-
     <!-- This becomes .../fastlane/metadata/android/full_description.txt.
-    See https://f-droid.org/docs/Build_Metadata_Reference/#Description -->
+    See https://f-droid.org/docs/Build_Metadata_Reference/#Description
+
+    strings.xml.about_content_about and fdroid.xml.full_description  have the same content.
+     strings.xml.about_content_about is in html format to be displayed in apps aboutbox.
+     fdroid.xml.full_description is in simple markdown syntax to be displayed in fdroid apstore
+     and in github homepage.
+     -->
     <string name="full_description"><![CDATA["
-Übersetzt den Namen einer Straße/Stadt/Turistenattraktion in eine geo-coordinate
-die
+Acastus-Photon übersetzt den Namen einer Straße/Stadt/Sehenswürdigkeit in Geo Koordinaten, die
 
-* in einer Navigations/Landkarten-app angezeigt werden kann (z.b. OsmAnd, Maps.me, APhotoManager)
-* per "senden/teilen" übermittelt werden kann.
+* in einer Navigations-/Karten App angezeigt werden können (z.b. OsmAnd, Maps.me, APhotoManager)
+* über die "Teilen"-Funktion von Android verschickt werden können
 
-Akastus kann durch Klicken auf eine Adresse im Android Telefonbuch "Kontakte" (SimpleContatcs) aufgerufen werden.
-
-Die Photon-Server-Software, die Acastus-Photon über das
-Internet aufruft, ist ein Ersatz für Google Maps und andere
-"geocoding services" die auf einem eigenen server betrieben
-werden kann. Siehe https://github.com/komoot/photon
-.
+Der Internetdienst "Photon", den Acastus-Photon zum auflösen von Adressen verwendet,
+ist eine Alternative zur Google Maps API und anderen Geocoding Diensten,
+welche auf einem eigenen Server betrieben werden kann (siehe https://github.com/komoot/photon).
 "]]></string>
 </resources>
