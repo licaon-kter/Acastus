@@ -1,1 +1,2 @@
-...todo...
+* #21: Bugfix Search from Android-Adressbook: housenumber,zipcopde interpreted as lat/lon
+* #11: Translations new si (Sinhala), updates de, pt

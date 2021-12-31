@@ -8,8 +8,9 @@ android {
         applicationId "name.gdr.acastus_photon"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 25
-        versionName "1.25"
+        versionCode 26
+        versionName "1.26"
+        // 1.26 : #21 Bugfix Search from Android-Adressbook: housenumber,zipcopde interpreted as lat/lon
         // 1.25 : #13 GPS energy efficiency, #19 Fixed Settings-Server icon, New translation cs
         // 1.24 : #16 translate fuzzy geo-uri (without lat/lon) to non-fuzzy geo (with lat/lon)
         // 1.23 : #10 fix displayed names for addresses with numbers
@@ -42,5 +43,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.mapzen.tangram:tangram:0.5.2'
-    implementation 'com.github.k3b:k3b-geoHelper:v1.1.9'
+    implementation 'com.github.k3b:k3b-geoHelper:v1.1.10'
 }
