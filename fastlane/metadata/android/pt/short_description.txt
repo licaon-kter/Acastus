@@ -1,1 +1,1 @@
-Uma pesquisa de POI/endereço online para aplicativos de navegação
+Um pesquisador online de endereço/POI para aplicativos de navegação.

@@ -3,23 +3,24 @@
  * Project: https://github.com/gjedeer/Acastus
  *
  * Translation  via https://crowdin.com/project/acastus-photon-adress2geotrans/
- * pt 2020 by acrylicpaintboy
+ * pt 2020 by acrylicpaintboy,  20210901 by André Marcelo Alvarenga (amalvarenga), 20210925 Marcus Schleder (schleder)
+
  *
  * These Texts will be shown in the app
  -->
 <resources>
-    <string name="app_name">Foto do Acastus</string>
-    <string name="action_settings">Confirgurações</string>
+    <string name="app_name">Acastus Photon</string>
+    <string name="action_settings">Configurações</string>
     <string name="action_share_location">Compartilhar localização</string>
-    <string name="title_activity_settings">Confirgurações</string>
+    <string name="title_activity_settings">Configurações</string>
     <!-- Strings related to Settings -->
     <!-- Example General settings -->
-    <string name="pref_header_general">Gerais</string>
+    <string name="pref_header_general">Geral</string>
     <string name="pref_header_server">Servidor</string>
     <string name="allow_location_title">Permitir localização</string>
     <string name="allow_location_description">Use sua localização para retornar resultados perto de você.</string>
     <string name="unit_length_title">Usar quilômetros</string>
-    <string name="unit_lenth_description">Use quilômetros em vez de quilômetros.</string>
+    <string name="unit_lenth_description">Use quilômetros em vez de milhas.</string>
     <string name="use_google_title">Usar URL do Google Maps</string>
     <string name="use_google_description">Use o URL do Google Maps em vez do tipo de link Geo.</string>
     <string name="store_recents_title">Salvar recentes</string>
@@ -27,20 +28,21 @@
     <string name="pref_title_app_theme">Tema do aplicativo</string>
     <string name="pref_description_app_theme">Usar tema escuro</string>
     <string name="server_url_setting">Endereço do Servidor</string>
-    <string name="clear_recents_setting">Limpar apps recentes</string>
-    <string name="need_nav_app">Você deve ter um Mapas/Navegação App instalado.</string>
+    <string name="clear_recents_setting">Limpar recentes</string>
+    <string name="need_nav_app">Você deve ter um App de Mapas/Navegação instalado.</string>
     <string name="my_current_location">Minha localização atual</string>
-    <string name="shared_location">Local Compartilhado</string>
-    <string name="navigate">Navigate</string>
+    <string name="shared_location">Localização compartilhada</string>
+    <string name="navigate">Navegar</string>
     <string name="copy_address_place">Copiar endereço/local para área de transferência</string>
     <string name="copy_gps">Copiar coordenadas GPS para área de transferência</string>
     <string name="share_this_location">Compartilhar esta localização</string>
     <string name="share_my_location">Compartilhar minha localização</string>
-    <string name="copied_to_clipboard">Copiado para o clipboard</string>
+    <string name="copied_to_clipboard">Copiado para área de transferência</string>
     <string name="search_address_place">Pesquisar endereço/local</string>
     <string name="share_address_place">Compartilhar endereço/local</string>
     <string name="accessing_location">Acessando localização...</string>
     <string name="location_not_enabled">Localização não ativada</string>
     <string name="donate_button">Doar</string>
-    <string name="pick_from_adress">Escolha a localização do toque (imagem de foto)</string>
+    <string name="pick_from_adress">Escolha a localização de endereço (Acastus Photon)</string>
+    <string name="hint_enter_address_poi">Digite o endereço/POI</string>
 </resources>

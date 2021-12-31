@@ -1,0 +1,11 @@
+<p>Acastus-Photon transforma o nome da rua/cidade/ponto de interesse
+para geo-coordenação que pode ser</p>
+<ul>
+<li>aberto em um mapa ou aplicativo de navegação como OsmAnd, Maps.me, APhotoManager.</li>
+<li>compartilhado com outras pessoas através do botão de envio.</li>
+</ul>
+<p>O Photon-Server-Software que Acastus-Photon chama pela internet
+é um substituto para o Google Maps e outros serviços de geocodificação que você
+pode executar no seu próprio servidor.</p>
+<p>Detalhes sobre a criação da sua própria instância de Photon estão aqui: https://github.com/komoot/photon
+.</p>
