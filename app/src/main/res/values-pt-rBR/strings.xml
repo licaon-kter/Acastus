@@ -9,7 +9,6 @@
  * These Texts will be shown in the app
  -->
 <resources>
-    <string name="app_name">Acastus Photon</string>
     <string name="action_settings">Configurações</string>
     <string name="action_share_location">Compartilhar localização</string>
     <string name="title_activity_settings">Configurações</string>

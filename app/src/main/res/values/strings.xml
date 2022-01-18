@@ -8,8 +8,6 @@
  * These Texts will be shown in the app
  -->
 <resources>
-    <string name="app_name">Acastus Photon</string>
-
     <string name="action_settings">Settings</string>
 
     <string name="action_share_location">Share Location</string>
