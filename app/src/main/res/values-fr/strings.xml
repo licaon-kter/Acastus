@@ -9,7 +9,7 @@
  -->
 
 <resources>
-    <string name="app_name">Photon Acastus</string>
+    <string name="app_name">Acastus Photon</string>
     <string name="action_settings">Réglages</string>
     <string name="action_share_location">Partager la localisation</string>
     <string name="title_activity_settings">Réglages</string>
