@@ -8,7 +8,7 @@
  * These Texts will be shown in the app
  -->
 <resources>
-    <string name="app_name">Foto Acastus</string>
+    <string name="app_name">Acastus Photon</string>
     <string name="action_settings">Impostazioni</string>
     <string name="action_share_location">Condividi posizione</string>
     <string name="title_activity_settings">Impostazioni</string>
