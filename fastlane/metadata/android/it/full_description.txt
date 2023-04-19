@@ -1,0 +1,12 @@
+<p>Acastus-Photon traduce il nome di strade/città/punti d'interesse
+in coordinate geografiche che possono essere</p>
+<ul>
+<li>aperte in una mappa o un applicazione di navigazione come OsmAnd, Maps.me, APhotoManager.</li>
+<li>condivise con altre persone tramite il comando d'invio.</li>
+</ul>
+<p>È possibile avviare Acastus cliccando su un indirizzo nell'applicazione Contatti di Android (SimpleContatcs).</p>
+<p>Il Photon-Server-Software che Acastus-Photon chiama su internet
+è un sostituto di Google Maps e di altri servizi di geo codifica che
+può eseguire sul tuo server.</p>
+<p>I dettagli per la configurazione della tua istanza di Photon sono qui: https://github.com/komoot/photon
+.</p>
