@@ -7,14 +7,15 @@ android {
     defaultConfig {
         applicationId "name.gdr.acastus_photon"
         minSdkVersion 19
+        //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 29
         versionCode 26
         versionName "1.26"
-        // 1.26 : #21 Bugfix Search from Android-Adressbook: housenumber,zipcopde interpreted as lat/lon
+        // 1.26 : #21 Bugfix Search from Android-Addressbook: housenumber,zipcopde interpreted as lat/lon
         // 1.25 : #13 GPS energy efficiency, #19 Fixed Settings-Server icon, New translation cs
         // 1.24 : #16 translate fuzzy geo-uri (without lat/lon) to non-fuzzy geo (with lat/lon)
         // 1.23 : #10 fix displayed names for addresses with numbers
-        // 1.22 : #10 Fix when there are numbers in adress. Lib-Updates
+        // 1.22 : #10 Fix when there are numbers in address. Lib-Updates
         // 1.21 : New Translations: it, no, pt, pt-BR, sv, es, pl
         // 1.20 : New Translations: fr
         // 1.19 : New Translations: nl and de; Added support for fastlane and crowdin translations
@@ -27,7 +28,13 @@ android {
         }
     }
 
-    lintOptions.abortOnError false
+    lintOptions {
+        // https://stackoverflow.com/questions/31350350/generating-signed-apk-error7-missingtranslation-in-build-generated-res-gen
+        // MissingTranslation : not all crowdwin translations are complete so ignore them
+        disable 'MissingTranslation'
+
+        abortOnError false
+    }
 
     sourceSets.main.assets.srcDirs = ['../styles']
     compileOptions {

@@ -1,3 +1,3 @@
-Fixed searching for adresses with street-number (#10)
+Fixed searching for addresses with street-number (#10)
 Library updates
 Added Screenshot to App-Descrition

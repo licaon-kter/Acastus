@@ -62,13 +62,13 @@
 
     <string name="share_address_place">Share address/place</string>
 
-    <string name="accessing_location">Accessing location...</string>
+    <string name="accessing_location">Accessing location…</string>
 
     <string name="location_not_enabled">Location not enabled</string>
 
     <string name="donate_button">Donate</string>
 
-    <string name="pick_from_adress">Pick geo from Adress (Acastus Photon)</string>
+    <string name="pick_from_adress">Pick geo from Address (Acastus Photon)</string>
     <string name="hint_enter_address_poi">Enter Address/POI</string>
 
 </resources>

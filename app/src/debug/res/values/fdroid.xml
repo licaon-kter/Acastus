@@ -33,7 +33,7 @@ to geo-coordinate which can be
 * opened in a map or navigation app such as OsmAnd, Maps.me, APhotoManager.
 * shared with other people via the send command.
 
-You can start Acastus by clicking on an adresss in the Android Contacts app (SimpleContatcs).
+You can start Acastus by clicking on an addresss in the Android Contacts app (SimpleContatcs).
 
 The Photon-Server-Software which Acastus-Photon calls over the internet
 is a replacement for Google Maps and other geocoding services that you

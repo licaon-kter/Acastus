@@ -4,7 +4,7 @@
 <li>ouvert dans une carte ou une application de navigation telle que OsmAnd, Maps.me, APhotoManager.</li>
 <li>partagé avec d'autres personnes via la commande d'envoi.</li>
 </ul>
-<p>You can start Acastus by clicking on an adresss in the Android Contacts app (SimpleContatcs).</p>
+<p>You can start Acastus by clicking on an addresss in the Android Contacts app (SimpleContatcs).</p>
 <p>Le logiciel Photon-Server-Software qu'Acastus-Photon appelle sur Internet
 remplace Google Maps et d'autres services de géocodage que vous
 peut fonctionner sur votre propre serveur.</p>

@@ -4,7 +4,7 @@ to geo-coordinate which can be</p>
 <li>opened in a map or navigation app such as OsmAnd, Maps.me, APhotoManager.</li>
 <li>shared with other people via the send command.</li>
 </ul>
-<p>You can start Acastus by clicking on an adresss in the Android Contacts app (SimpleContatcs).</p>
+<p>You can start Acastus by clicking on an addresss in the Android Contacts app (SimpleContatcs).</p>
 <p>The Photon-Server-Software which Acastus-Photon calls over the internet
 is a replacement for Google Maps and other geocoding services that you
 can run on your own server.</p>
