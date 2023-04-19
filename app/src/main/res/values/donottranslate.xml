@@ -8,7 +8,7 @@
  * These Texts will be shown in the app
  -->
 <resources>
-    <string name="app_name" translatable="false">Acastus Photon</string>
+    <string name="app_name" translatable="false">✉➡🌍 Acastus Photon</string>
     <string name="server_url_default" translatable="false">https://photon.komoot.io/api</string>
     <string name="api_key_setting" translatable="false">API Key</string>
 </resources>

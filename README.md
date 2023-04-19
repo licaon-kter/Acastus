@@ -1,11 +1,11 @@
-# Acastus
+# ✉➡🌍 Acastus-Photon
 ![](https://i.imgur.com/uZYbEwT.png)
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/name.gdr.acastus_photon)
       
-Acastus Photon is a completely private, free and open source Address / POI lookup application for android.
+"✉➡🌍 Acastus-Photon" is a completely private, free and open source Address / POI lookup application for android.
 
 Use it to find nearby places, all without the privacy invasions and tracking features of other 
 apps. 
@@ -21,7 +21,7 @@ You can start Acastus by clicking on an address in the SimpleContatcs.
 
 ----
 
-Acastus Photon relies on [Photon](http://photon.komoot.io/api) as the backend, a replacement for Google Maps and other geocoding services
+"✉➡🌍 Acastus-Photon" relies on [Photon](http://photon.komoot.io/api) as the backend, a replacement for Google Maps and other geocoding services
 that you can run on your own server. It uses the photon-api to fetch results to your phone, allowing
 you to search for places, then open and navigate to the result in your preferred 
 navigation app such as OsmAnd or Maps.me.
@@ -53,8 +53,8 @@ King of public transit planning!
 [Transportr](https://f-droid.org/en/packages/de.grobox.liberario)
 Public Transport Companion
 
+[AndroidGeo2ArticlesMap](https://f-droid.org/packages/de.k3b.android.geo2articlesmap/)
+Show articles (wikipedia/wikivoyage) near the geolocation in an interactive map
+
 [c:geo via izzysoft-f-droid-repository](https://apt.izzysoft.de/fdroid/index/apk/cgeo.geocaching)
 powerful geocaching app
-
-[A Photo Manager](https://f-droid.org/en/packages/de.k3b.android.androFotoFinder)
-Manage local photos: Find/Copy/Edit-Exif and show in Gallery or Map.

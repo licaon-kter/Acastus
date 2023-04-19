@@ -1,1 +1,4 @@
+* changed app title to "✉➡🌍 Acastus-Photon" (added Symbols)
 * #26: #6: #11: i18n: fixed typo in English language: Adress => Address
+* #6: #11: i18n: new italian translations by luca-65e709c0
+* #6: #11: i18n: updated russian translation
